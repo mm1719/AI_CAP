@@ -1,0 +1,1203 @@
+[
+    {
+        "task_id": 411,
+        "code": [
+            "import re\n\ndef snake_to_camel(s):\n    s = re.sub(r'(_\\w)', lambda m: m.group(1)[1].upper(), s)\n    return s.capitalize()"
+        ],
+        "test_list": [
+            "assert snake_to_camel('android_tv') == 'AndroidTv'",
+            "assert snake_to_camel('google_pixel') == 'GooglePixel'",
+            "assert snake_to_camel('apple_watch') == 'AppleWatch'"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 412,
+        "code": [
+            "def remove_odd(nums):\n    return [num for num in nums if num % 2 == 0]"
+        ],
+        "test_list": [
+            "assert remove_odd([1,2,3]) == [2]",
+            "assert remove_odd([2,4,6]) == [2,4,6]",
+            "assert remove_odd([10,20,3]) == [10,20]"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 413,
+        "code": [
+            "def extract_nth_element(list_of_tuples, n):\n    return [tup[n] for tup in list_of_tuples]"
+        ],
+        "test_list": [
+            "assert extract_nth_element([('Greyson Fulton', 98, 99), ('Brady Kent', 97, 96), ('Wyatt Knott', 91, 94), ('Beau Turnbull', 94, 98)] ,0)==['Greyson Fulton', 'Brady Kent', 'Wyatt Knott', 'Beau Turnbull']",
+            "assert extract_nth_element([('Greyson Fulton', 98, 99), ('Brady Kent', 97, 96), ('Wyatt Knott', 91, 94), ('Beau Turnbull', 94, 98)] ,2)==[99, 96, 94, 98]",
+            "assert extract_nth_element([('Greyson Fulton', 98, 99), ('Brady Kent', 97, 96), ('Wyatt Knott', 91, 94), ('Beau Turnbull', 94, 98)],1)==[98, 97, 91, 94]"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 414,
+        "code": [
+            "def overlapping(seq1, seq2):\n    return any(i in seq2 for i in seq1)"
+        ],
+        "test_list": [
+            "assert overlapping([1,2,3,4,5],[6,7,8,9]) == False",
+            "assert overlapping([1,2,3],[4,5,6]) == False",
+            "assert overlapping([1,4,5],[1,4,5]) == True"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 415,
+        "code": [
+            "def max_Product(nums):\n    nums = sorted(nums)\n    n = len(nums)\n    return (nums[n-1], nums[n-2])"
+        ],
+        "test_list": [
+            "assert max_Product([1,2,3,4,7,0,8,4]) == (7,8)",
+            "assert max_Product([0,-1,-2,-4,5,0,-6]) == (-4,-6)",
+            "assert max_Product([1,2,3]) == (2,3)"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 416,
+        "code": [
+            "def breakSum(n):\n    if n < 2:\n        return n\n    max_sum = float('-inf')\n    for i in range(1, n-1):\n        for j in range(i, n-i+1):\n            k = n - i - j\n            max_sum = max(max_sum, i + j + k, i + breakSum(i) + breakSum(j) + breakSum(k))\n    return max_sum"
+        ],
+        "test_list": [
+            "assert breakSum(12) == 13",
+            "assert breakSum(24) == 27",
+            "assert breakSum(23) == 23"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 417,
+        "code": [
+            "from collections import defaultdict\n\ndef group_tuples(tuples):\n    d = defaultdict(list)\n    for t in tuples:\n        d[t[0]].append(t[1])\n    return [(k, *v) for k, v in d.items()]"
+        ],
+        "test_list": [
+            "assert group_tuples([('x', 'y'), ('x', 'z'), ('w', 't')]) == [('x', 'y', 'z'), ('w', 't')]",
+            "assert group_tuples([('a', 'b'), ('a', 'c'), ('d', 'e')]) == [('a', 'b', 'c'), ('d', 'e')]",
+            "assert group_tuples([('f', 'g'), ('f', 'g'), ('h', 'i')]) == [('f', 'g', 'g'), ('h', 'i')]"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 418,
+        "code": [
+            "def Find_Max(lst):\n    return max(lst, key=len)"
+        ],
+        "test_list": [
+            "assert Find_Max([['A'],['A','B'],['A','B','C']]) == ['A','B','C']",
+            "assert Find_Max([[1],[1,2],[1,2,3]]) == [1,2,3]",
+            "assert Find_Max([[1,1],[1,2,3],[1,5,6,1]]) == [1,5,6,1]"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 419,
+        "code": [
+            "def round_and_sum(numbers):\n    rounded_numbers = [round(num) for num in numbers]\n    total_sum = sum(rounded_numbers)\n    return total_sum * len(numbers)"
+        ],
+        "test_list": [
+            "assert round_and_sum([22.4, 4.0, -16.22, -9.10, 11.00, -12.22, 14.20, -5.20, 17.50])==243",
+            "assert round_and_sum([5,2,9,24.3,29])==345",
+            "assert round_and_sum([25.0,56.7,89.2])==513"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 420,
+        "code": [
+            "def cube_Sum(n):\n    sum_even = n * 2 * (n + 1)\n    return sum_even ** 3"
+        ],
+        "test_list": [
+            "assert cube_Sum(2) == 72",
+            "assert cube_Sum(3) == 288",
+            "assert cube_Sum(4) == 800"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 421,
+        "code": [
+            "def concatenate_tuple(t, delimiter='-'):\n    return delimiter.join(map(str, t))"
+        ],
+        "test_list": [
+            "assert concatenate_tuple((\"ID\", \"is\", 4, \"UTS\") ) == 'ID-is-4-UTS'",
+            "assert concatenate_tuple((\"QWE\", \"is\", 4, \"RTY\") ) == 'QWE-is-4-RTY'",
+            "assert concatenate_tuple((\"ZEN\", \"is\", 4, \"OP\") ) == 'ZEN-is-4-OP'"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 422,
+        "code": [
+            "def find_Average_Of_Cube(n):\n    if n <= 0:\n        return \"Input should be a positive integer\"\n    cube_sum = sum(i**3 for i in range(1, n + 1))\n    return cube_sum / n"
+        ],
+        "test_list": [
+            "assert find_Average_Of_Cube(2) == 4.5",
+            "assert find_Average_Of_Cube(3) == 12",
+            "assert find_Average_Of_Cube(1) == 1"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 423,
+        "code": [
+            "def get_maxgold(matrix, n, m):\n    dp = [[0]*m for _ in range(n)]\n    dp[0][0] = matrix[0][0]\n    for i in range(1, n):\n        dp[i][0] = dp[i-1][0] + matrix[i][0]\n    for j in range(1, m):\n        dp[0][j] = dp[0][j-1] + matrix[0][j]\n    for i in range(1, n):\n        for j in range(1, m):\n            dp[i][j] = max(dp[i-1][j], dp[i][j-1]) + matrix[i][j]\n    return dp[n-1][m-1]"
+        ],
+        "test_list": [
+            "assert get_maxgold([[1, 3, 1, 5],[2, 2, 4, 1],[5, 0, 2, 3],[0, 6, 1, 2]],4,4)==16",
+            "assert get_maxgold([[10,20],[30,40]],2,2)==70",
+            "assert get_maxgold([[4,9],[3,7]],2,2)==13"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 424,
+        "code": [
+            "def extract_rear(string_tuple):\n    return [string[-1] for string in string_tuple]"
+        ],
+        "test_list": [
+            "assert extract_rear(('Mers', 'for', 'Vers') ) == ['s', 'r', 's']",
+            "assert extract_rear(('Avenge', 'for', 'People') ) == ['e', 'r', 'e']",
+            "assert extract_rear(('Gotta', 'get', 'go') ) == ['a', 't', 'o']"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 425,
+        "code": [
+            "def count_element_in_list(lst, elem):\n    return sum(1 for sublist in lst if elem in sublist)"
+        ],
+        "test_list": [
+            "assert count_element_in_list([[1, 3], [5, 7], [1, 11], [1, 15, 7]],1)==3",
+            "assert count_element_in_list([['A', 'B'], ['A', 'C'], ['A', 'D', 'E'], ['B', 'C', 'D']],'A')==3",
+            "assert count_element_in_list([['A', 'B'], ['A', 'C'], ['A', 'D', 'E'], ['B', 'C', 'D']],'E')==1"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 426,
+        "code": [
+            "filter_oddnumbers = lambda numbers: list(filter(lambda x: x % 2 != 0, numbers))"
+        ],
+        "test_list": [
+            "assert filter_oddnumbers([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])==[1,3,5,7,9]",
+            "assert filter_oddnumbers([10,20,45,67,84,93])==[45,67,93]",
+            "assert filter_oddnumbers([5,7,9,8,6,4,3])==[5,7,9,3]"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 427,
+        "code": [
+            "import re\n\ndef change_date_format(date):\n    match = re.match(r'(\\d{4})-(\\d{2})-(\\d{2})', date)\n    if match:\n        return '{}-{}-{}'.format(match.group(3), match.group(2), match.group(1))\n    else:\n        return None"
+        ],
+        "test_list": [
+            "assert change_date_format(\"2026-01-02\") == '02-01-2026'",
+            "assert change_date_format(\"2020-11-13\") == '13-11-2020'",
+            "assert change_date_format(\"2021-04-26\") == '26-04-2021'"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 428,
+        "code": [
+            "def shell_sort(arr):\n    n = len(arr)\n    gap = n // 2\n\n    while gap > 0:\n        for i in range(gap, n):\n            temp = arr[i]\n            j = i\n\n            while j >= gap and arr[j - gap] > temp:\n                arr[j] = arr[j - gap]\n                j -= gap\n\n            arr[j] = temp\n        gap //= 2\n\n    return arr"
+        ],
+        "test_list": [
+            "assert shell_sort([12, 23, 4, 5, 3, 2, 12, 81, 56, 95]) == [2, 3, 4, 5, 12, 12, 23, 56, 81, 95]",
+            "assert shell_sort([24, 22, 39, 34, 87, 73, 68]) == [22, 24, 34, 39, 68, 73, 87]",
+            "assert shell_sort([32, 30, 16, 96, 82, 83, 74]) == [16, 30, 32, 74, 82, 83, 96]"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 429,
+        "code": [
+            "def and_tuples(t1, t2):\n    return tuple(x - y for x, y in zip(t1, t2))"
+        ],
+        "test_list": [
+            "assert and_tuples((10, 4, 6, 9), (5, 2, 3, 3)) == (0, 0, 2, 1)",
+            "assert and_tuples((1, 2, 3, 4), (5, 6, 7, 8)) == (1, 2, 3, 0)",
+            "assert and_tuples((8, 9, 11, 12), (7, 13, 14, 17)) == (0, 9, 10, 0)"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 430,
+        "code": [
+            "def parabola_directrix(vertex_y, p, focus_y):\n    return vertex_y - p"
+        ],
+        "test_list": [
+            "assert parabola_directrix(5,3,2)==-198",
+            "assert parabola_directrix(9,8,4)==-2336",
+            "assert parabola_directrix(2,4,6)==-130"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 431,
+        "code": [
+            "def common_element(list1, list2):\n    return bool(set(list1) & set(list2))"
+        ],
+        "test_list": [
+            "assert common_element([1,2,3,4,5], [5,6,7,8,9])==True",
+            "assert common_element([1,2,3,4,5], [6,7,8,9])==None",
+            "assert common_element(['a','b','c'], ['d','b','e'])==True"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 432,
+        "code": [
+            "def median_trapezium(a, b, c):\n    return sorted([a, b, c])[1]"
+        ],
+        "test_list": [
+            "assert median_trapezium(15,25,35)==20",
+            "assert median_trapezium(10,20,30)==15",
+            "assert median_trapezium(6,9,4)==7.5"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 433,
+        "code": [
+            "def check_greater(array, num):\n    if all(num > i for i in array):\n        return 'Yes, entered number is greater than those in the array'\n    else:\n        return 'No, entered number is less than or equal to those in the array'"
+        ],
+        "test_list": [
+            "assert check_greater([1, 2, 3, 4, 5], 4) == 'No, entered number is less than those in the array'",
+            "assert check_greater([2, 3, 4, 5, 6], 8) == 'Yes, the entered number is greater than those in the array'",
+            "assert check_greater([9, 7, 4, 8, 6, 1], 11) == 'Yes, the entered number is greater than those in the array'"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 434,
+        "code": [
+            "def text_match_one(text):\n    if set(\"ab\").issubset(set(text)) and text.count('a') == 1 and text.count('b') > 0:\n        return \"Matched!\"\n    else:\n        return \"Not matched!\""
+        ],
+        "test_list": [
+            "assert text_match_one(\"ac\")==('Not matched!')",
+            "assert text_match_one(\"dc\")==('Not matched!')",
+            "assert text_match_one(\"abba\")==('Found a match!')"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 435,
+        "code": [
+            "def last_Digit(n):\n    return n % 10"
+        ],
+        "test_list": [
+            "assert last_Digit(123) == 3",
+            "assert last_Digit(25) == 5",
+            "assert last_Digit(30) == 0"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 436,
+        "code": [
+            "def neg_nos(nums):\n    neg_nums = [num for num in nums if num < 0]\n    for num in neg_nums:\n        print(num)",
+            "def test_neg_nos():\n    capturedOutput = io.StringIO()           # Create StringIO object\n    sys.stdout = capturedOutput              #  and redirect stdout.\n    neg_nos([-1,4,5,-6])                   # Call function\n    sys.stdout = sys.__stdout__              # Reset stdout.\n    outputFile = capturedOutput.getvalue()   # Now it's safe to restore sys.stdout."
+        ],
+        "test_list": [
+            "assert neg_nos([-1,4,5,-6]) == -1,-6",
+            "assert neg_nos([-1,-2,3,4]) == -1,-2",
+            "assert neg_nos([-7,-6,8,9]) == -7,-6"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 437,
+        "code": [
+            "def remove_odd(s):\n    return s[::2]"
+        ],
+        "test_list": [
+            "assert remove_odd(\"python\")==(\"yhn\")",
+            "assert remove_odd(\"program\")==(\"rga\")",
+            "assert remove_odd(\"language\")==(\"agae\")"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 438,
+        "code": [
+            "def count_bidirectional(pairs):\n    count = 0\n    for i in range(len(pairs)):\n        for j in range(i + 1, len(pairs)):\n            if set(pairs[i]) == set(pairs[j][::-1]):\n                count += 1\n    return str(count)"
+        ],
+        "test_list": [
+            "assert count_bidirectional([(5, 6), (1, 2), (6, 5), (9, 1), (6, 5), (2, 1)] ) == '3'",
+            "assert count_bidirectional([(5, 6), (1, 3), (6, 5), (9, 1), (6, 5), (2, 1)] ) == '2'",
+            "assert count_bidirectional([(5, 6), (1, 2), (6, 5), (9, 2), (6, 5), (2, 1)] ) == '4'"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 439,
+        "code": [
+            "def multiple_to_single(lst):\n    return int(''.join(map(str, lst)))"
+        ],
+        "test_list": [
+            "assert multiple_to_single([11, 33, 50])==113350",
+            "assert multiple_to_single([-1,2,3,4,5,6])==-123456",
+            "assert multiple_to_single([10,15,20,25])==10152025"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 440,
+        "code": [
+            "import nltk\nnltk.download('averaged_perceptron_tagger')\n\ndef find_adverb_position(sentence):\n    tokens = nltk.word_tokenize(sentence)\n    tagged = nltk.pos_tag(tokens)\n    for i, (word, tag) in enumerate(tagged):\n        if tag == 'RB':  # 'RB' is the Penn Treebank tag for adverbs\n            return (i, i + len(word), word)\n    return None  # or raise an exception, depending on your requirements"
+        ],
+        "test_list": [
+            "assert find_adverb_position(\"clearly!! we can see the sky\")==(0, 7, 'clearly')",
+            "assert find_adverb_position(\"seriously!! there are many roses\")==(0, 9, 'seriously')",
+            "assert find_adverb_position(\"unfortunately!! sita is going to home\")==(0, 13, 'unfortunately')"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 441,
+        "code": [
+            "def surfacearea_cube(side):\n    return 6 * side ** 2"
+        ],
+        "test_list": [
+            "assert surfacearea_cube(5)==150",
+            "assert surfacearea_cube(3)==54",
+            "assert surfacearea_cube(10)==600"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 442,
+        "code": [
+            "def positive_count(lst):\n    positive_nums = len([num for num in lst if num > 0])\n    return positive_nums / len(lst)"
+        ],
+        "test_list": [
+            "assert positive_count([0, 1, 2, -1, -5, 6, 0, -3, -2, 3, 4, 6, 8])==0.54",
+            "assert positive_count([2, 1, 2, -1, -5, 6, 4, -3, -2, 3, 4, 6, 8])==0.69",
+            "assert positive_count([2, 4, -6, -9, 11, -12, 14, -5, 17])==0.56"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 443,
+        "code": [
+            "def largest_neg(lst):\n    neg_nums = [num for num in lst if num < 0]\n    return max(neg_nums) if neg_nums else None"
+        ],
+        "test_list": [
+            "assert largest_neg([1,2,3,-4,-6]) == -6",
+            "assert largest_neg([1,2,3,-8,-9]) == -9",
+            "assert largest_neg([1,2,3,4,-1]) == -1"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 444,
+        "code": [
+            "def trim_tuple(tuples, k):\n    trimmed_tuples = [tuple([t[k-1]]) for t in tuples]\n    return str(trimmed_tuples)"
+        ],
+        "test_list": [
+            "assert trim_tuple([(5, 3, 2, 1, 4), (3, 4, 9, 2, 1),(9, 1, 2, 3, 5), (4, 8, 2, 1, 7)], 2) == '[(2,), (9,), (2,), (2,)]'",
+            "assert trim_tuple([(5, 3, 2, 1, 4), (3, 4, 9, 2, 1), (9, 1, 2, 3, 5), (4, 8, 2, 1, 7)], 1) == '[(3, 2, 1), (4, 9, 2), (1, 2, 3), (8, 2, 1)]'",
+            "assert trim_tuple([(7, 8, 4, 9), (11, 8, 12, 4),(4, 1, 7, 8), (3, 6, 9, 7)], 1) == '[(8, 4), (8, 12), (1, 7), (6, 9)]'"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 445,
+        "code": [
+            "def index_multiplication(list1, list2):\n    return tuple((a * c, b * d) for (a, b), (c, d) in zip(list1, list2))"
+        ],
+        "test_list": [
+            "assert index_multiplication(((1, 3), (4, 5), (2, 9), (1, 10)),((6, 7), (3, 9), (1, 1), (7, 3)) ) == ((6, 21), (12, 45), (2, 9), (7, 30))",
+            "assert index_multiplication(((2, 4), (5, 6), (3, 10), (2, 11)),((7, 8), (4, 10), (2, 2), (8, 4)) ) == ((14, 32), (20, 60), (6, 20), (16, 44))",
+            "assert index_multiplication(((3, 5), (6, 7), (4, 11), (3, 12)),((8, 9), (5, 11), (3, 3), (9, 5)) ) == ((24, 45), (30, 77), (12, 33), (27, 60))"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 446,
+        "code": [
+            "def count_Occurrence(t, lst):\n    count = 0\n    for elem in lst:\n        count += t.count(elem)\n    return count"
+        ],
+        "test_list": [
+            "assert count_Occurrence(('a', 'a', 'c', 'b', 'd'),['a', 'b'] ) == 3",
+            "assert count_Occurrence((1, 2, 3, 1, 4, 6, 7, 1, 4),[1, 4, 7]) == 6",
+            "assert count_Occurrence((1,2,3,4,5,6),[1,2]) == 2"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 447,
+        "code": [
+            "cube_nums = lambda nums: list(map(lambda x: x**3, nums))"
+        ],
+        "test_list": [
+            "assert cube_nums([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])==[1, 8, 27, 64, 125, 216, 343, 512, 729, 1000]",
+            "assert cube_nums([10,20,30])==([1000, 8000, 27000])",
+            "assert cube_nums([12,15])==([1728, 3375])"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 448,
+        "code": [
+            "def cal_sum(n):\n    a, b, c = 0, 0, 1\n    total = 0\n    for _ in range(n):\n        total += a\n        a, b, c = b, c, a + b\n    return total"
+        ],
+        "test_list": [
+            "assert cal_sum(9) == 49",
+            "assert cal_sum(10) == 66",
+            "assert cal_sum(11) == 88"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 449,
+        "code": [
+            "import math\n\ndef distance(x1, y1, x2, y2):\n    return math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)\n\ndef check_Triangle(x1, y1, x2, y2, x3, y3):\n    a = distance(x2, y2, x3, y3)\n    b = distance(x1, y1, x3, y3)\n    c = distance(x1, y1, x2, y2)\n    if (a + b > c) and (b + c > a) and (a + c > b):\n        return 'Yes'\n    else:\n        return 'No'"
+        ],
+        "test_list": [
+            "assert check_Triangle(1,5,2,5,4,6) == 'Yes'",
+            "assert check_Triangle(1,1,1,4,1,5) == 'No'",
+            "assert check_Triangle(1,1,1,1,1,1) == 'No'"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 450,
+        "code": [
+            "def extract_string(string_list, size):\n    return [string for string in string_list if len(string) == size]"
+        ],
+        "test_list": [
+            "assert extract_string(['Python', 'list', 'exercises', 'practice', 'solution'] ,8)==['practice', 'solution']",
+            "assert extract_string(['Python', 'list', 'exercises', 'practice', 'solution'] ,6)==['Python']",
+            "assert extract_string(['Python', 'list', 'exercises', 'practice', 'solution'] ,9)==['exercises']"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 451,
+        "code": [
+            "import re\n\ndef remove_whitespaces(s):\n    return re.sub(r'\\s+', '', s)"
+        ],
+        "test_list": [
+            "assert remove_whitespaces(' Google    Flutter ') == 'GoogleFlutter'",
+            "assert remove_whitespaces(' Google    Dart ') == 'GoogleDart'",
+            "assert remove_whitespaces(' iOS    Swift ') == 'iOSSwift'"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 452,
+        "code": [
+            "def loss_amount(buying_price, selling_price):\n    if buying_price > selling_price:\n        return buying_price - selling_price\n    else:\n        return None"
+        ],
+        "test_list": [
+            "assert loss_amount(1500,1200)==None",
+            "assert loss_amount(100,200)==100",
+            "assert loss_amount(2000,5000)==3000"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 453,
+        "code": [
+            "def sumofFactors(n):\n    sum = 0\n    for i in range(1, n + 1):\n        if n % i == 0 and i % 2 == 0:\n            sum += i\n    return sum"
+        ],
+        "test_list": [
+            "assert sumofFactors(18) == 26",
+            "assert sumofFactors(30) == 48",
+            "assert sumofFactors(6) == 8"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 454,
+        "code": [
+            "def text_match_wordz(text):\n    if 'z' in text:\n        return 'Found a match!'\n    return 'Not found'"
+        ],
+        "test_list": [
+            "assert text_match_wordz(\"pythonz.\")==('Found a match!')",
+            "assert text_match_wordz(\"xyz.\")==('Found a match!')",
+            "assert text_match_wordz(\"  lang  .\")==('Not matched!')"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 455,
+        "code": [
+            "def check_monthnumb_number(month_number):\n    thirty_one_days_months = [1, 3, 5, 7, 8, 10, 12]\n    return month_number in thirty_one_days_months"
+        ],
+        "test_list": [
+            "assert check_monthnumb_number(5)==True",
+            "assert check_monthnumb_number(2)==False",
+            "assert check_monthnumb_number(6)==False"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 456,
+        "code": [
+            "def reverse_string_list(string_list):\n    return [s[::-1] for s in string_list]"
+        ],
+        "test_list": [
+            "assert reverse_string_list(['Red', 'Green', 'Blue', 'White', 'Black'])==['deR', 'neerG', 'eulB', 'etihW', 'kcalB']",
+            "assert reverse_string_list(['john','amal','joel','george'])==['nhoj','lama','leoj','egroeg']",
+            "assert reverse_string_list(['jack','john','mary'])==['kcaj','nhoj','yram']"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 457,
+        "code": [
+            "def Find_Min(lst):\n    return min(lst, key=len)"
+        ],
+        "test_list": [
+            "assert Find_Min([[1],[1,2],[1,2,3]]) == [1]",
+            "assert Find_Min([[1,1],[1,1,1],[1,2,7,8]]) == [1,1]",
+            "assert Find_Min([['x'],['x','y'],['x','y','z']]) == ['x']"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 458,
+        "code": [
+            "def rectangle_area(length, width):\n    return length * width"
+        ],
+        "test_list": [
+            "assert rectangle_area(10,20)==200",
+            "assert rectangle_area(10,5)==50",
+            "assert rectangle_area(4,2)==8"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 459,
+        "code": [
+            "import re\n\ndef remove_uppercase(s):\n    return re.sub('[A-Z]+', '', s)"
+        ],
+        "test_list": [
+            "assert remove_uppercase('cAstyoUrFavoRitETVshoWs') == 'cstyoravoitshos'",
+            "assert remove_uppercase('wAtchTheinTernEtrAdIo') == 'wtchheinerntrdo'",
+            "assert remove_uppercase('VoicESeaRchAndreComMendaTionS') == 'oiceachndreomendaion'"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 460,
+        "code": [
+            "def Extract(list_of_lists):\n    return [sublist[0] for sublist in list_of_lists]"
+        ],
+        "test_list": [
+            "assert Extract([[1, 2], [3, 4, 5], [6, 7, 8, 9]]) == [1, 3, 6]",
+            "assert Extract([[1,2,3],[4, 5]]) == [1,4]",
+            "assert Extract([[9,8,1],[1,2]]) == [9,1]"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 461,
+        "code": [
+            "def upper_ctr(s):\n    return sum(1 for c in s if c.isupper())"
+        ],
+        "test_list": [
+            "assert upper_ctr('PYthon') == 1",
+            "assert upper_ctr('BigData') == 1",
+            "assert upper_ctr('program') == 0"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 462,
+        "code": [
+            "import itertools\n\ndef combinations_list(input_list):\n    all_combinations = []\n    for r in range(len(input_list) + 1):\n        all_combinations.extend(itertools.combinations(input_list, r))\n    return [list(c) for c in all_combinations]"
+        ],
+        "test_list": [
+            "assert combinations_list(['orange', 'red', 'green', 'blue'])==[[], ['orange'], ['red'], ['red', 'orange'], ['green'], ['green', 'orange'], ['green', 'red'], ['green', 'red', 'orange'], ['blue'], ['blue', 'orange'], ['blue', 'red'], ['blue', 'red', 'orange'], ['blue', 'green'], ['blue', 'green', 'orange'], ['blue', 'green', 'red'], ['blue', 'green', 'red', 'orange']]",
+            "assert combinations_list(['red', 'green', 'blue', 'white', 'black', 'orange'])==[[], ['red'], ['green'], ['green', 'red'], ['blue'], ['blue', 'red'], ['blue', 'green'], ['blue', 'green', 'red'], ['white'], ['white', 'red'], ['white', 'green'], ['white', 'green', 'red'], ['white', 'blue'], ['white', 'blue', 'red'], ['white', 'blue', 'green'], ['white', 'blue', 'green', 'red'], ['black'], ['black', 'red'], ['black', 'green'], ['black', 'green', 'red'], ['black', 'blue'], ['black', 'blue', 'red'], ['black', 'blue', 'green'], ['black', 'blue', 'green', 'red'], ['black', 'white'], ['black', 'white', 'red'], ['black', 'white', 'green'], ['black', 'white', 'green', 'red'], ['black', 'white', 'blue'], ['black', 'white', 'blue', 'red'], ['black', 'white', 'blue', 'green'], ['black', 'white', 'blue', 'green', 'red'], ['orange'], ['orange', 'red'], ['orange', 'green'], ['orange', 'green', 'red'], ['orange', 'blue'], ['orange', 'blue', 'red'], ['orange', 'blue', 'green'], ['orange', 'blue', 'green', 'red'], ['orange', 'white'], ['orange', 'white', 'red'], ['orange', 'white', 'green'], ['orange', 'white', 'green', 'red'], ['orange', 'white', 'blue'], ['orange', 'white', 'blue', 'red'], ['orange', 'white', 'blue', 'green'], ['orange', 'white', 'blue', 'green', 'red'], ['orange', 'black'], ['orange', 'black', 'red'], ['orange', 'black', 'green'], ['orange', 'black', 'green', 'red'], ['orange', 'black', 'blue'], ['orange', 'black', 'blue', 'red'], ['orange', 'black', 'blue', 'green'], ['orange', 'black', 'blue', 'green', 'red'], ['orange', 'black', 'white'], ['orange', 'black', 'white', 'red'], ['orange', 'black', 'white', 'green'], ['orange', 'black', 'white', 'green', 'red'], ['orange', 'black', 'white', 'blue'], ['orange', 'black', 'white', 'blue', 'red'], ['orange', 'black', 'white', 'blue', 'green'], ['orange', 'black', 'white', 'blue', 'green', 'red']]",
+            "assert combinations_list(['red', 'green', 'black', 'orange'])==[[], ['red'], ['green'], ['green', 'red'], ['black'], ['black', 'red'], ['black', 'green'], ['black', 'green', 'red'], ['orange'], ['orange', 'red'], ['orange', 'green'], ['orange', 'green', 'red'], ['orange', 'black'], ['orange', 'black', 'red'], ['orange', 'black', 'green'], ['orange', 'black', 'green', 'red']]"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 463,
+        "code": [
+            "def max_subarray_product(arr):\n    if not arr:\n        return 0\n    max_product = arr[0]\n    min_product = arr[0]\n    result = arr[0]\n    for i in range(1, len(arr)):\n        if arr[i] < 0:\n            max_product, min_product = min_product, max_product\n        max_product = max(arr[i], max_product * arr[i])\n        min_product = min(arr[i], min_product * arr[i])\n        result = max(result, max_product)\n    return result"
+        ],
+        "test_list": [
+            "assert max_subarray_product([1, -2, -3, 0, 7, -8, -2]) == 112",
+            "assert max_subarray_product([6, -3, -10, 0, 2]) == 180 ",
+            "assert max_subarray_product([-2, -40, 0, -2, -3]) == 80"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 464,
+        "code": [
+            "def check_value(dictionary, value):\n    return all(val == value for val in dictionary.values())"
+        ],
+        "test_list": [
+            "assert check_value({'Cierra Vega': 12, 'Alden Cantrell': 12, 'Kierra Gentry': 12, 'Pierre Cox': 12},10)==False",
+            "assert check_value({'Cierra Vega': 12, 'Alden Cantrell': 12, 'Kierra Gentry': 12, 'Pierre Cox': 12},12)==True",
+            "assert check_value({'Cierra Vega': 12, 'Alden Cantrell': 12, 'Kierra Gentry': 12, 'Pierre Cox': 12},5)==False"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 465,
+        "code": [
+            "def drop_empty(d):\n    return {k: v for k, v in d.items() if v}"
+        ],
+        "test_list": [
+            "assert drop_empty({'c1': 'Red', 'c2': 'Green', 'c3':None})=={'c1': 'Red', 'c2': 'Green'}",
+            "assert drop_empty({'c1': 'Red', 'c2': None, 'c3':None})=={'c1': 'Red'}",
+            "assert drop_empty({'c1': None, 'c2': 'Green', 'c3':None})=={ 'c2': 'Green'}"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 466,
+        "code": [
+            "def find_peak(arr, n):\n    if n == 1:\n        return 0\n    if arr[0] >= arr[1]:\n        return 0\n    for i in range(1, n-1):\n        if arr[i] >= arr[i-1] and arr[i] >= arr[i+1]:\n            return i\n    if arr[n-1] >= arr[n-2]:\n        return n-1\n    return -1"
+        ],
+        "test_list": [
+            "assert find_peak([1, 3, 20, 4, 1, 0], 6) == 2",
+            "assert find_peak([2, 3, 4, 5, 6], 5) == 4",
+            "assert find_peak([8, 9, 11, 12, 14, 15], 6) == 5 "
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 467,
+        "code": [
+            "def decimal_to_Octal(n):\n    return int(str(oct(n))[2:], 8)"
+        ],
+        "test_list": [
+            "assert decimal_to_Octal(10) == 12",
+            "assert decimal_to_Octal(2) == 2",
+            "assert decimal_to_Octal(33) == 41"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 468,
+        "code": [
+            "def max_product(arr, n):\n    if n == 0:\n        return 1\n    dp = [1] * n\n    dp[0] = arr[0]\n    max_product_so_far = arr[0]\n    \n    for i in range(1, n):\n        max_val = float('-inf')\n        for j in range(i):\n            if arr[i] > arr[j]:\n                max_val = max(max_val, dp[j])\n        dp[i] = max_val * arr[i] if max_val != float('-inf') else arr[i]\n        max_product_so_far = max(max_product_so_far, dp[i])\n    \n    return max_product_so_far"
+        ],
+        "test_list": [
+            "assert max_product([3, 100, 4, 5, 150, 6], 6) == 45000 ",
+            "assert max_product([4, 42, 55, 68, 80], 5) == 50265600",
+            "assert max_product([10, 22, 9, 33, 21, 50, 41, 60], 8) == 21780000 "
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 469,
+        "code": [
+            "def max_profit(prices, k):\n    n = len(prices)\n    if k >= n // 2:\n        return sum(max(0, b - a) for a, b in zip(prices, prices[1:]))\n    dp = [[[0] * 2 for _ in range(k + 1)] for _ in range(n)]\n    for i in range(1, n):\n        for j in range(1, min(i, k) + 1):\n            dp[i][j][0] = max(dp[i - 1][j][0], dp[i - 1][j - 1][1] + prices[i] - prices[i - 1])\n            dp[i][j][1] = max(dp[i - 1][j][1], dp[i - 1][j][0] - prices[i] + prices[i - 1])\n    return dp[-1][-1][0]"
+        ],
+        "test_list": [
+            "assert max_profit([1, 5, 2, 3, 7, 6, 4, 5], 3) == 10",
+            "assert max_profit([2, 4, 7, 5, 4, 3, 5], 2) == 7",
+            "assert max_profit([10, 6, 8, 4, 2], 2) == 2"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 470,
+        "code": [
+            "def add_pairwise(t):\n    return tuple(t[i] + t[i+1] for i in range(len(t) - 1))"
+        ],
+        "test_list": [
+            "assert add_pairwise((1, 5, 7, 8, 10)) == (6, 12, 15, 18)",
+            "assert add_pairwise((2, 6, 8, 9, 11)) == (8, 14, 17, 20)",
+            "assert add_pairwise((3, 7, 9, 10, 12)) == (10, 16, 19, 22)"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 471,
+        "code": [
+            "def find_remainder(arr, n, mod):\n    result = 1\n    for num in arr:\n        result = (result * num) % mod\n    return result % n"
+        ],
+        "test_list": [
+            "assert find_remainder([ 100, 10, 5, 25, 35, 14 ],6,11) ==9",
+            "assert find_remainder([1,1,1],3,1) == 0",
+            "assert find_remainder([1,2,1],3,2) == 0"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 472,
+        "code": [
+            "def check_Consecutive(lst):\n    return lst == list(range(min(lst), max(lst) + 1))"
+        ],
+        "test_list": [
+            "assert check_Consecutive([1,2,3,4,5]) == True",
+            "assert check_Consecutive([1,2,3,5,6]) == False",
+            "assert check_Consecutive([1,2,1]) == False"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 473,
+        "code": [
+            "def tuple_intersection(list1, list2):\n    set1 = {frozenset(t) for t in list1}\n    set2 = {frozenset(t) for t in list2}\n    common = set1 & set2\n    return {tuple(sorted(t)) for t in common}"
+        ],
+        "test_list": [
+            "assert tuple_intersection([(3, 4), (5, 6), (9, 10), (4, 5)] , [(5, 4), (3, 4), (6, 5), (9, 11)]) == {(4, 5), (3, 4), (5, 6)}",
+            "assert tuple_intersection([(4, 1), (7, 4), (11, 13), (17, 14)] , [(1, 4), (7, 4), (16, 12), (10, 13)]) == {(4, 7), (1, 4)}",
+            "assert tuple_intersection([(2, 1), (3, 2), (1, 3), (1, 4)] , [(11, 2), (2, 3), (6, 2), (1, 3)]) == {(1, 3), (2, 3)}"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 474,
+        "code": [
+            "def replace_char(s, old, new):\n    return s.replace(old, new)"
+        ],
+        "test_list": [
+            "assert replace_char(\"polygon\",'y','l')==(\"pollgon\")",
+            "assert replace_char(\"character\",'c','a')==(\"aharaater\")",
+            "assert replace_char(\"python\",'l','a')==(\"python\")"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 475,
+        "code": [
+            "def sort_counter(counter):\n    return sorted(counter.items(), key=lambda x: x[1], reverse=True)"
+        ],
+        "test_list": [
+            "assert sort_counter({'Math':81, 'Physics':83, 'Chemistry':87})==[('Chemistry', 87), ('Physics', 83), ('Math', 81)]",
+            "assert sort_counter({'Math':400, 'Physics':300, 'Chemistry':250})==[('Math', 400), ('Physics', 300), ('Chemistry', 250)]",
+            "assert sort_counter({'Math':900, 'Physics':1000, 'Chemistry':1250})==[('Chemistry', 1250), ('Physics', 1000), ('Math', 900)]"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 476,
+        "code": [
+            "def big_sum(arr):\n    return max(arr) + min(arr)"
+        ],
+        "test_list": [
+            "assert big_sum([1,2,3]) == 4",
+            "assert big_sum([-1,2,3,4]) == 3",
+            "assert big_sum([2,3,6]) == 8"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 477,
+        "code": [
+            "def is_lower(s):\n    return s.lower()"
+        ],
+        "test_list": [
+            "assert is_lower(\"InValid\") == \"invalid\"",
+            "assert is_lower(\"TruE\") == \"true\"",
+            "assert is_lower(\"SenTenCE\") == \"sentence\""
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 478,
+        "code": [
+            "def remove_lowercase(s):\n    return ''.join(c for c in s if c.isupper())"
+        ],
+        "test_list": [
+            "assert remove_lowercase(\"PYTHon\")==('PYTH')",
+            "assert remove_lowercase(\"FInD\")==('FID')",
+            "assert remove_lowercase(\"STRinG\")==('STRG')"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 479,
+        "code": [
+            "def first_Digit(n):\n    while n >= 10:\n        n = n // 10\n    return n"
+        ],
+        "test_list": [
+            "assert first_Digit(123) == 1",
+            "assert first_Digit(456) == 4",
+            "assert first_Digit(12) == 1"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 480,
+        "code": [
+            "def get_max_occuring_char(s):\n    char_count = {}\n    for char in s:\n        if char in char_count:\n            char_count[char] += 1\n        else:\n            char_count[char] = 1\n    max_count = max(char_count.values())\n    max_chars = [char for char, count in char_count.items() if count == max_count]\n    return min(max_chars)"
+        ],
+        "test_list": [
+            "assert get_max_occuring_char(\"data\") == \"a\"",
+            "assert get_max_occuring_char(\"create\") == \"e\"",
+            "assert get_max_occuring_char(\"brilliant girl\") == \"i\""
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 481,
+        "code": [
+            "def is_subset_sum(set, n, sum):\n    dp = [False] * (sum + 1)\n    dp[0] = True\n    for num in set:\n        for i in range(sum, num - 1, -1):\n            dp[i] = dp[i] or dp[i - num]\n    return dp[sum]"
+        ],
+        "test_list": [
+            "assert is_subset_sum([3, 34, 4, 12, 5, 2], 6, 9) == True",
+            "assert is_subset_sum([3, 34, 4, 12, 5, 2], 6, 30) == False",
+            "assert is_subset_sum([3, 34, 4, 12, 5, 2], 6, 15) == True"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 482,
+        "code": [
+            "import re\n\ndef match(s):\n    if re.search(r'[A-Z][a-z]+', s):\n        return 'Yes'\n    else:\n        return 'No'"
+        ],
+        "test_list": [
+            "assert match(\"Geeks\") == 'Yes'",
+            "assert match(\"geeksforGeeks\") == 'Yes'",
+            "assert match(\"geeks\") == 'No'"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 483,
+        "code": [
+            "def first_Factorial_Divisible_Number(x):\n    n = 1\n    while True:\n        factorial = 1\n        for i in range(1, n + 1):\n            factorial *= i\n        if factorial % x == 0:\n            return n\n        n += 1"
+        ],
+        "test_list": [
+            "assert first_Factorial_Divisible_Number(10) == 5",
+            "assert first_Factorial_Divisible_Number(15) == 5",
+            "assert first_Factorial_Divisible_Number(5) == 4"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 484,
+        "code": [
+            "def remove_matching_tuple(tuple1, tuple2):\n    return tuple(i for i in tuple1 if i not in tuple2)"
+        ],
+        "test_list": [
+            "assert remove_matching_tuple([('Hello', 'dude'), ('How', 'are'), ('you', '?')], [('Hello', 'dude'), ('How', 'are')]) == [('you', '?')]",
+            "assert remove_matching_tuple([('Part', 'of'), ('the', 'journey'), ('is ', 'end')], [('Journey', 'the'), ('is', 'end')]) == [('Part', 'of'), ('the', 'journey'), ('is ', 'end')]",
+            "assert remove_matching_tuple([('Its', 'been'), ('a', 'long'), ('day', 'without')], [('a', 'long'), ('my', 'friend')]) == [('Its', 'been'), ('day', 'without')]"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 485,
+        "code": [
+            "def largest_palindrome(arr, n):\n    def is_palindrome(num):\n        return str(num) == str(num)[::-1]\n\n    palindromes = [num for num in arr if is_palindrome(num)]\n    return max(palindromes) if palindromes else None"
+        ],
+        "test_list": [
+            "assert largest_palindrome([1, 232, 54545, 999991], 4) == 54545",
+            "assert largest_palindrome([1, 2, 3, 4, 5, 50], 6) == 5",
+            "assert largest_palindrome([1, 3, 7, 9, 45], 5)  == 9"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 486,
+        "code": [
+            "import math\n\ndef binomial_probability(n, k, p):\n    q = 1 - p\n    nCk = math.comb(n, k)\n    return nCk * (p**k) * (q**(n-k))"
+        ],
+        "test_list": [
+            "assert binomial_probability(10, 5, 1.0/3) == 0.13656454808718185",
+            "assert binomial_probability(11, 6, 2.0/4) == 0.2255859375",
+            "assert binomial_probability(12, 7, 3.0/5) == 0.227030335488"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 487,
+        "code": [
+            "def sort_tuple(tuples):\n    return sorted(tuples, key=lambda x: x[1])"
+        ],
+        "test_list": [
+            "assert sort_tuple([(1, 3), (3, 2), (2, 1)] ) == [(2, 1), (3, 2), (1, 3)]",
+            "assert sort_tuple([(2, 4), (3, 3), (1, 1)] ) == [(1, 1), (3, 3), (2, 4)]",
+            "assert sort_tuple([(3, 9), (6, 7), (4, 3)] ) == [(4, 3), (6, 7), (3, 9)]"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 488,
+        "code": [
+            "import math\n\ndef area_pentagon(side):\n    return (5 * side**2) / (4 * math.tan(math.pi/5))"
+        ],
+        "test_list": [
+            "assert area_pentagon(5)==43.01193501472417",
+            "assert area_pentagon(10)==172.0477400588967",
+            "assert area_pentagon(15)==387.10741513251753"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 489,
+        "code": [
+            "def frequency_Of_Largest(max_val, arr):\n    max_arr = max(arr)\n    return arr.count(max_arr)"
+        ],
+        "test_list": [
+            "assert frequency_Of_Largest(5,[1,2,3,4,4]) == 2",
+            "assert frequency_Of_Largest(3,[5,6,5]) == 1",
+            "assert frequency_Of_Largest(4,[2,7,7,7]) == 3"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 490,
+        "code": [
+            "def extract_symmetric(pairs):\n    symmetric_pairs = set()\n    pair_set = set(pairs)\n    for pair in pairs:\n        if (pair[1], pair[0]) in pair_set:\n            symmetric_pairs.add(pair)\n            symmetric_pairs.add((pair[1], pair[0]))\n    return symmetric_pairs"
+        ],
+        "test_list": [
+            "assert extract_symmetric([(6, 7), (2, 3), (7, 6), (9, 8), (10, 2), (8, 9)] ) == {(8, 9), (6, 7)}",
+            "assert extract_symmetric([(7, 8), (3, 4), (8, 7), (10, 9), (11, 3), (9, 10)] ) == {(9, 10), (7, 8)}",
+            "assert extract_symmetric([(8, 9), (4, 5), (9, 8), (11, 10), (12, 4), (10, 11)] ) == {(8, 9), (10, 11)}"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 491,
+        "code": [
+            "def sum_gp(a, l, n):\n    r = l / a ** (1 / (n - 1))\n    return a * (1 - r ** n) / (1 - r)"
+        ],
+        "test_list": [
+            "assert sum_gp(1,5,2)==31",
+            "assert sum_gp(1,5,4)==341",
+            "assert sum_gp(2,6,3)==728"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 492,
+        "code": [
+            "def binary_search(arr, target):\n    low, high = 0, len(arr) - 1\n    while low <= high:\n        mid = (low + high) // 2\n        if arr[mid] == target:\n            return True\n        elif arr[mid] < target:\n            low = mid + 1\n        else:\n            high = mid - 1\n    return False"
+        ],
+        "test_list": [
+            "assert binary_search([1,2,3,5,8], 6) == False",
+            "assert binary_search([7, 8, 9, 10, 13], 10) == True",
+            "assert binary_search([11, 13, 14, 19, 22, 36], 23) == False"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 493,
+        "code": [
+            "import math\n\ndef calculate_polygons(width, height, rows, cols, size):\n    result = []\n    for row in range(rows):\n        for col in range(cols):\n            x = col * size * 1.5 - width / 2\n            y = row * size * math.sqrt(3) - height / 2\n            if row % 2 == 1:\n                x += size / 2\n            points = []\n            for i in range(6):\n                angle = 2 * math.pi / 6 * i\n                points.append((x + size * math.cos(angle), y + size * math.sin(angle)))\n            result.append(points)\n    return result"
+        ],
+        "test_list": [
+            "assert calculate_polygons(1,1, 4, 4, 3)==[[(-5.0, -4.196152422706632), (-5.0, -0.7320508075688767), (-2.0, 1.0), (1.0, -0.7320508075688767), (1.0, -4.196152422706632), (-2.0, -5.928203230275509), (-5.0, -4.196152422706632)], [(1.0, -4.196152422706632), (1.0, -0.7320508075688767), (4.0, 1.0), (7.0, -0.7320508075688767), (7.0, -4.196152422706632), (4.0, -5.928203230275509), (1.0, -4.196152422706632)], [(7.0, -4.196152422706632), (7.0, -0.7320508075688767), (10.0, 1.0), (13.0, -0.7320508075688767), (13.0, -4.196152422706632), (10.0, -5.928203230275509), (7.0, -4.196152422706632)], [(-2.0, 1.0000000000000004), (-2.0, 4.464101615137755), (1.0, 6.196152422706632), (4.0, 4.464101615137755), (4.0, 1.0000000000000004), (1.0, -0.7320508075688767), (-2.0, 1.0000000000000004)], [(4.0, 1.0000000000000004), (4.0, 4.464101615137755), (7.0, 6.196152422706632), (10.0, 4.464101615137755), (10.0, 1.0000000000000004), (7.0, -0.7320508075688767), (4.0, 1.0000000000000004)], [(-5.0, 6.196152422706632), (-5.0, 9.660254037844387), (-2.0, 11.392304845413264), (1.0, 9.660254037844387), (1.0, 6.196152422706632), (-2.0, 4.464101615137755), (-5.0, 6.196152422706632)], [(1.0, 6.196152422706632), (1.0, 9.660254037844387), (4.0, 11.392304845413264), (7.0, 9.660254037844387), (7.0, 6.196152422706632), (4.0, 4.464101615137755), (1.0, 6.196152422706632)], [(7.0, 6.196152422706632), (7.0, 9.660254037844387), (10.0, 11.392304845413264), (13.0, 9.660254037844387), (13.0, 6.196152422706632), (10.0, 4.464101615137755), (7.0, 6.196152422706632)], [(-2.0, 11.392304845413264), (-2.0, 14.85640646055102), (1.0, 16.588457268119896), (4.0, 14.85640646055102), (4.0, 11.392304845413264), (1.0, 9.660254037844387), (-2.0, 11.392304845413264)], [(4.0, 11.392304845413264), (4.0, 14.85640646055102), (7.0, 16.588457268119896), (10.0, 14.85640646055102), (10.0, 11.392304845413264), (7.0, 9.660254037844387), (4.0, 11.392304845413264)]]",
+            "assert calculate_polygons(5,4,7,9,8)==[[(-11.0, -9.856406460551018), (-11.0, -0.6188021535170058), (-3.0, 4.0), (5.0, -0.6188021535170058), (5.0, -9.856406460551018), (-3.0, -14.475208614068023), (-11.0, -9.856406460551018)], [(5.0, -9.856406460551018), (5.0, -0.6188021535170058), (13.0, 4.0), (21.0, -0.6188021535170058), (21.0, -9.856406460551018), (13.0, -14.475208614068023), (5.0, -9.856406460551018)], [(21.0, -9.856406460551018), (21.0, -0.6188021535170058), (29.0, 4.0), (37.0, -0.6188021535170058), (37.0, -9.856406460551018), (29.0, -14.475208614068023), (21.0, -9.856406460551018)], [(-3.0, 4.0), (-3.0, 13.237604307034012), (5.0, 17.856406460551018), (13.0, 13.237604307034012), (13.0, 4.0), (5.0, -0.6188021535170058), (-3.0, 4.0)], [(13.0, 4.0), (13.0, 13.237604307034012), (21.0, 17.856406460551018), (29.0, 13.237604307034012), (29.0, 4.0), (21.0, -0.6188021535170058), (13.0, 4.0)], [(-11.0, 17.856406460551018), (-11.0, 27.09401076758503), (-3.0, 31.712812921102035), (5.0, 27.09401076758503), (5.0, 17.856406460551018), (-3.0, 13.237604307034012), (-11.0, 17.856406460551018)], [(5.0, 17.856406460551018), (5.0, 27.09401076758503), (13.0, 31.712812921102035), (21.0, 27.09401076758503), (21.0, 17.856406460551018), (13.0, 13.237604307034012), (5.0, 17.856406460551018)], [(21.0, 17.856406460551018), (21.0, 27.09401076758503), (29.0, 31.712812921102035), (37.0, 27.09401076758503), (37.0, 17.856406460551018), (29.0, 13.237604307034012), (21.0, 17.856406460551018)], [(-3.0, 31.712812921102035), (-3.0, 40.95041722813605), (5.0, 45.569219381653056), (13.0, 40.95041722813605), (13.0, 31.712812921102035), (5.0, 27.09401076758503), (-3.0, 31.712812921102035)], [(13.0, 31.712812921102035), (13.0, 40.95041722813605), (21.0, 45.569219381653056), (29.0, 40.95041722813605), (29.0, 31.712812921102035), (21.0, 27.09401076758503), (13.0, 31.712812921102035)]]",
+            "assert calculate_polygons(9,6,4,3,2)==[[(5.0, 2.5358983848622456), (5.0, 4.8452994616207485), (7.0, 6.0), (9.0, 4.8452994616207485), (9.0, 2.5358983848622456), (7.0, 1.3811978464829942), (5.0, 2.5358983848622456)], [(7.0, 6.0), (7.0, 8.309401076758503), (9.0, 9.464101615137753), (11.0, 8.309401076758503), (11.0, 6.0), (9.0, 4.8452994616207485), (7.0, 6.0)]]"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 494,
+        "code": [
+            "def binary_to_integer(binary_tuple):\n    binary_str = ''.join(str(bit) for bit in binary_tuple)\n    return binary_str"
+        ],
+        "test_list": [
+            "assert binary_to_integer((1, 1, 0, 1, 0, 0, 1)) == '105'",
+            "assert binary_to_integer((0, 1, 1, 0, 0, 1, 0, 1)) == '101'",
+            "assert binary_to_integer((1, 1, 0, 1, 0, 1)) == '53'"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 495,
+        "code": [
+            "import re\n\ndef remove_lowercase(s):\n    return re.sub('[a-z]+', '', s)"
+        ],
+        "test_list": [
+            "assert remove_lowercase('KDeoALOklOOHserfLoAJSIskdsf') == 'KDALOOOHLAJSI'",
+            "assert remove_lowercase('ProducTnamEstreAmIngMediAplAYer') == 'PTEAIMAAY'",
+            "assert remove_lowercase('maNufacTuredbYSheZenTechNolOGIes') == 'NTYSZTNOGI'"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 496,
+        "code": [
+            "import heapq\n\ndef heap_queue_smallest(nums, k):\n    return heapq.nsmallest(k, nums)"
+        ],
+        "test_list": [
+            "assert heap_queue_smallest( [25, 35, 22, 85, 14, 65, 75, 25, 58],3)==[14, 22, 25] ",
+            "assert heap_queue_smallest( [25, 35, 22, 85, 14, 65, 75, 25, 58],2)==[14, 22]",
+            "assert heap_queue_smallest( [25, 35, 22, 85, 14, 65, 75, 22, 58],5)==[14, 22, 22, 25, 35]"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 497,
+        "code": [
+            "import math\n\ndef surfacearea_cone(r, h):\n    l = math.sqrt(r**2 + h**2)\n    base_area = math.pi * (r ** 2)\n    lateral_area = math.pi * r * l\n    return base_area + lateral_area"
+        ],
+        "test_list": [
+            "assert surfacearea_cone(5,12)==282.7433388230814",
+            "assert surfacearea_cone(10,15)==880.5179353159282",
+            "assert surfacearea_cone(19,17)==2655.923961165254"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 498,
+        "code": [
+            "def gcd(a, b):\n    while b != 0:\n        a, b = b, a % b\n    return abs(a)"
+        ],
+        "test_list": [
+            "assert gcd(12, 17) == 1",
+            "assert gcd(4,6) == 2",
+            "assert gcd(2,9) == 1"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 499,
+        "code": [
+            "def diameter_circle(radius):\n    return 2 * radius"
+        ],
+        "test_list": [
+            "assert diameter_circle(10)==20",
+            "assert diameter_circle(40)==80",
+            "assert diameter_circle(15)==30"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 500,
+        "code": [
+            "def concatenate_elements(list_of_strings):\n    return ' '.join(list_of_strings)"
+        ],
+        "test_list": [
+            "assert concatenate_elements(['hello','there','have','a','rocky','day'] ) == '  hello there have a rocky day'",
+            "assert concatenate_elements([ 'Hi', 'there', 'How','are', 'you'] ) == '  Hi there How are you'",
+            "assert concatenate_elements([ 'Part', 'of', 'the','journey', 'is', 'end'] ) == '  Part of the journey is end'"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 501,
+        "code": [
+            "def num_comm_div(a, b):\n    common_divisors = [i for i in range(1, min(a, b) + 1) if a % i == 0 and b % i == 0]\n    return max(common_divisors)"
+        ],
+        "test_list": [
+            "assert num_comm_div(2,4) == 2",
+            "assert num_comm_div(2,8) == 2",
+            "assert num_comm_div(12,24) == 6"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 502,
+        "code": [
+            "def find(a, b):\n    return a % b"
+        ],
+        "test_list": [
+            "assert find(3,3) == 0",
+            "assert find(10,3) == 1",
+            "assert find(16,5) == 1"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 503,
+        "code": [
+            "def add_consecutive_nums(nums):\n    result = [nums[0]]\n    for i in range(1, len(nums)):\n        result.append(result[-1] + nums[i])\n    return result"
+        ],
+        "test_list": [
+            "assert add_consecutive_nums([1, 1, 3, 4, 4, 5, 6, 7])==[2, 4, 7, 8, 9, 11, 13]",
+            "assert add_consecutive_nums([4, 5, 8, 9, 6, 10])==[9, 13, 17, 15, 16]",
+            "assert add_consecutive_nums([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])==[3, 5, 7, 9, 11, 13, 15, 17, 19]"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 504,
+        "code": [
+            "def sum_Of_Series(n):\n    return sum(i**3 for i in range(1, n+1))"
+        ],
+        "test_list": [
+            "assert sum_Of_Series(5) == 225",
+            "assert sum_Of_Series(2) == 9",
+            "assert sum_Of_Series(3) == 36"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 505,
+        "code": [
+            "def re_order(arr):\n    return [x for x in arr if x != 0] + [x for x in arr if x == 0]"
+        ],
+        "test_list": [
+            "assert re_order([6, 0, 8, 2, 3, 0, 4, 0, 1]) == [6, 8, 2, 3, 4, 1, 0, 0, 0]",
+            "assert re_order([4, 0, 2, 7, 0, 9, 0, 12, 0]) == [4, 2, 7, 9, 12, 0, 0, 0, 0]",
+            "assert re_order([3, 11, 0, 74, 14, 0, 1, 0, 2]) == [3, 11, 74, 14, 1, 2, 0, 0, 0]"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 506,
+        "code": [
+            "import math\n\ndef permutation_coefficient(n, k):\n    if k > n or k < 0:\n        return \"Invalid input. k should be between 0 and n.\"\n    else:\n        return math.factorial(n) // (math.factorial(n - k))"
+        ],
+        "test_list": [
+            "assert permutation_coefficient(10, 2) == 90",
+            "assert permutation_coefficient(10, 3) == 720",
+            "assert permutation_coefficient(10, 1) == 10"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 507,
+        "code": [
+            "def remove_words(word_list, words_to_remove):\n    return [word for word in word_list if word not in words_to_remove]"
+        ],
+        "test_list": [
+            "assert remove_words(['red', 'green', 'blue', 'white', 'black', 'orange'],['white', 'orange'])==['red', 'green', 'blue', 'black']",
+            "assert remove_words(['red', 'green', 'blue', 'white', 'black', 'orange'],['black', 'orange'])==['red', 'green', 'blue', 'white']",
+            "assert remove_words(['red', 'green', 'blue', 'white', 'black', 'orange'],['blue', 'white'])==['red', 'green', 'black', 'orange']"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 508,
+        "code": [
+            "def same_order(list1, list2):\n    common_elements = [element for element in list1 if element in list2]\n    indices1 = [list1.index(element) for element in common_elements]\n    indices2 = [list2.index(element) for element in common_elements]\n    return indices1 == indices2"
+        ],
+        "test_list": [
+            "assert same_order([\"red\",\"green\",\"black\",\"orange\"],[\"red\",\"pink\",\"green\",\"white\",\"black\"])==True",
+            "assert same_order([\"red\",\"pink\",\"green\",\"white\",\"black\"],[\"white\",\"orange\",\"pink\",\"black\"])==False",
+            "assert same_order([\"red\",\"green\",\"black\",\"orange\"],[\"red\",\"pink\",\"green\",\"white\",\"black\"])==True"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 509,
+        "code": [
+            "def average_Odd(n):\n    odd_numbers = [i for i in range(1, n+1, 2)]\n    return sum(odd_numbers) / len(odd_numbers)"
+        ],
+        "test_list": [
+            "assert average_Odd(9) == 5",
+            "assert average_Odd(5) == 3",
+            "assert average_Odd(11) == 6"
+        ],
+        "test_setup_code": ""
+    },
+    {
+        "task_id": 510,
+        "code": [
+            "def no_of_subsequences(arr, k):\n    n = len(arr)\n    res = 0\n    for i in range(1 << n):\n        prod = 1\n        for j in range(n):\n            if (i & (1 << j)) > 0:\n                prod *= arr[j]\n        if prod < k:\n            res += 1\n    return res"
+        ],
+        "test_list": [
+            "assert no_of_subsequences([1,2,3,4], 10) == 11",
+            "assert no_of_subsequences([4,8,7,2], 50) == 9",
+            "assert no_of_subsequences([5,6,7,8], 15) == 4"
+        ],
+        "test_setup_code": ""
+    }
+]
