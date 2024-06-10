@@ -6,4 +6,4 @@
 - phi3_evaluate_origin.ipynb, phi3_evaluate_1TCDH.ipynb, phi3_evaluate_3TCDH.ipynb, phi3_evaluate_3TCBH.ipynb: 測試各種 phi-3 在 testing set 的表現
 ## 資料夾說明
 - data: 裡面有 testing set, training set 還有每種模型的測試答案
-- eval: Phi-3 的測試情況
+- eval: Phi-3 模型在testing set的逐題測試
